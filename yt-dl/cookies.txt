@@ -1,0 +1,12 @@
+Paste youtube cookie here, this will be used by yt-dl to get your watch later list and mark downloaded videos as watched.
+
+
+
+you can use the chrome app 'cookies.txt'
+as found here:
+https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg?utm_source=chrome-app-launcher-info-dialog
+
+output will start like this:
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+
