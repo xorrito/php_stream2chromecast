@@ -1,4 +1,3 @@
-var c_p = "";
 function cast(){
 	if (! document.querySelector('input[name = "file"]:checked') ) {
 		alert("Nothing Selected");
@@ -17,6 +16,21 @@ function cast(){
 		};
 	}
 }
+function local_cast(){
+	var player = document.getElementById("player_holder");
+	player.className='';
+	var vid = document.getElementById("local_player");
+	vid.src = document.querySelector('input[name = "file"]:checked').value;
+	vid.load();
+	vid.play();
+}
+function close_local_player(){
+	var player = document.getElementById("player_holder");
+	player.className='hidden';
+	var vid = document.getElementById("local_player");
+	vid.src = "";
+	vid.load();
+}
 function show_hide(){
 	holder = document.getElementById("output_holder");
 	chevron = document.getElementById("show_hide");
@@ -27,6 +41,16 @@ function show_hide(){
 		chevron.innerHTML = "chevron_left";
 		holder.className = "docked";
 	}
+}
+function selected(referenceNode){
+	var child=document.getElementById('floating_buttons');
+	referenceNode.appendChild(child);
+}
+function hide_floating_buttons(event){
+	event.stopPropagation();
+	var child=document.getElementById('floating_buttons');
+	var hidden_div=document.getElementById('hidden_div');
+	hidden_div.appendChild(child);
 }
 function pause(){
 	http2 = new XMLHttpRequest();

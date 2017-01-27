@@ -11,15 +11,10 @@
 			font-family: 'Ubuntu';
 			background:#E1BEE7;
 		}
-		.cnr {
+		.snr {
 			position:fixed;
 			top:5px;
 			right:15px;
-		}
-		.dna {
-			position:fixed;
-			top:5px;
-			left:15px;
 		}
 		#ytdl_tracker{
 			position:fixed;
@@ -74,7 +69,7 @@
 		.img_title{
 			min-height: 260px;
 			width: 356px;
-			border: #E1BEE7 5px solid;
+			margin: 5px;
 			text-align: center;
 			float:left;
 			position: relative;
@@ -105,9 +100,54 @@
 			top: 50px;
 			max-height:calc(100% - 120px);
 		}
-		input[type=radio]:checked + .img_title{
-			border: red 5px solid;
-			}
+		#floating_buttons{
+			position: absolute; 
+			width:180px;
+			height:180px;
+			top:10px;
+			left:calc(50% - 90px);
+		}
+		#floating_buttons:after{
+    content:'';
+    width:180px;
+    height:180px;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0.5;
+    background:white;
+    border-radius:100%;
+}
+		#floating_buttons > i {
+			width:55px;
+			height:55px;
+			background:#EC407A;
+			color: #FCE4EC;
+			position: absolute;
+    	vertical-align: middle;
+    	text-align: center;
+    	font-size: 40px;
+    	border-radius:100%;
+    	line-height:55px;
+    	cursor:pointer;
+    	z-index:1;
+		}
+		#floating_buttons > i:nth-child(1){
+			top:calc(50% - 70px);
+			left:calc(50% - 70px);
+		}
+		#floating_buttons > i:nth-child(2){
+			bottom:calc(50% - 70px);
+			left:calc(50% - 70px);
+		}
+		#floating_buttons > i:nth-child(3){
+			bottom:calc(50% - 70px);
+			right:calc(50% - 70px);
+		}
+		#floating_buttons > i:nth-child(4){
+			top:calc(50% - 70px);
+			right:calc(50% - 70px);
+		}
 		#output_holder{
 			position:fixed;
 			top: 50px;
@@ -170,4 +210,46 @@
 			height:100%;
 			-webkit-transition: width 1s;
 			background:#3F51B5;
+		}
+		#player_holder{
+			position:fixed;
+			width:100%;
+  		height:100%;
+			z-index:20;
+			top:0;
+    left:0;
+		}
+		#player_holder:after{
+    content:'';
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0.7;
+    background:black
+		}
+		#player_holder > i {
+			width:55px;
+			height:55px;
+			background:#EC407A;
+			color: #FCE4EC;
+			position:absolute;
+    	vertical-align: middle;
+    	text-align: center;
+    	font-size: 40px;
+    	border-radius:100%;
+    	line-height:55px;
+    	cursor:pointer;
+    	z-index:21;
+    	top:5px;
+    	right:5px;
+		}
+		#local_player{
+			max-width:90%;
+			max-height:90%;
+			z-index:21;
+			right:5%;
+			bottom:60px;
+			position:absolute;
 		}

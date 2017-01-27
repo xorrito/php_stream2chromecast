@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=384, user-scalable=1">
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
 		<link href="../material-icons/material-icons.css" rel="stylesheet">
 		<link rel='stylesheet' href='cast.css'>
 		<script src="cast.js"></script>
@@ -12,23 +14,29 @@
 				<i class="material-icons" id='show_hide' onclick='show_hide();'>chevron_right</i>
 				<div id="cast_output">Loading! Please Wait.</div>
 			</div>
-			<div class="cnr">
-				<button onclick="cast();">
-					<i class="material-icons">cast</i>
+			<div class="snr">
+				<button onclick="s2c_check();">
+					<i class="material-icons">sync</i>
 				</button>
-				<button onclick="load_list();">
+				<button onclick="hide_floating_buttons(event); load_list();">
 					<i class="material-icons">refresh</i>
 				</button>
 			</div>
-			<div class='dna'>
-				<button onclick="delete_file();">
-					<i class="material-icons">delete</i>
-				</button>
-				<button onclick="archive();">
-					<i class="material-icons">archive</i>
-				</button>
-			</div>
+			<div id='player_holder' class='hidden'>
+					<i onclick='close_local_player();' class="material-icons">close</i>
+					<video id='local_player' width="100%" controls>
+						Your browser does not support the video tag.
+					</video>
+				</div>
 			<div id='file_list'><br><hr>Loading List!</div>
+			<div id='hidden_div' class="hidden">
+				<span id='floating_buttons'>
+					<i onclick="hide_floating_buttons(event); delete_file();" class="material-icons">delete</i>
+					<i onclick="hide_floating_buttons(event); archive();" class="material-icons">archive</i>
+					<i onclick="local_cast();" class="material-icons">play_arrow</i>
+					<i onclick="cast();" class="material-icons">cast</i>
+				</span>
+			</div>
 			<pre id='about' class='hidden'>
 Stream2chromecast GitHub page:
 https://github.com/Pat-Carter/stream2chromecast
@@ -38,9 +46,6 @@ https://github.com/rg3/youtube-dl
 			</pre>
 			<br><br><br>
 			<div id='s2c_tracker'>
-				<button onclick="s2c_check();">
-					<i class="material-icons">sync</i>
-				</button>
 				<div id="seek_holder">
 					<div id='seek_text'><div id='player_current'></div><div id='player_duration'></div><div id='player_status'></div></div>
 					<div id='seek'></div>
